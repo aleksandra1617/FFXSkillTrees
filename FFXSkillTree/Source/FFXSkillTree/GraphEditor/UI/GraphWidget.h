@@ -15,12 +15,16 @@ class FFXSKILLTREE_API UGraphWidget : public UUserWidget
 	GENERATED_BODY()
 
 public:
-	// Unreal does not allow UGraphNodeWidget here so using UUserWidget
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TSubclassOf<UGraphNodeWidget> DefaultNodeWidgetClass;
 
+	UPROPERTY(EditAnywhere)
+	TMap<FGuid, FVector2D> NodePositions;
+
 	UFUNCTION(BlueprintCallable)
     void AddNodeWidget();
+
+	virtual bool NativeOnDrop(const FGeometry& InGeometry, const FDragDropEvent& InDragDropEvent, UDragDropOperation* InOperation) override;
 	
 protected:
 	UPROPERTY(meta = (BindWidget))

@@ -29,9 +29,18 @@ protected:
 	UPROPERTY(meta = (BindWidget))
 	TObjectPtr<class UTextBlock> TitleTextBlock;
 	
-	UPROPERTY(meta = (BindWidget))
-	TObjectPtr<class UButton> NodeButton;
+	//UPROPERTY(meta = (BindWidget))
+	//TObjectPtr<class UButton> NodeButton;
+
+	virtual FReply NativeOnMouseButtonDown(const FGeometry& InGeometry, const FPointerEvent& InMouseEvent) override;
+	virtual void NativeOnDragDetected(const FGeometry& InGeometry, const FPointerEvent& InMouseEvent, UDragDropOperation*& OutOperation) override;
 	
 	UFUNCTION()
 	void HandleClick();
+
+	virtual bool NativeOnDragOver(const FGeometry& MyGeometry, const FDragDropEvent& DragDropEvent, UDragDropOperation* Operation) override
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Drag Over"));
+		return true;  
+	}
 };
