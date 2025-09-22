@@ -3,7 +3,6 @@
 
 TArray<FVector> UGraphLayoutStrategyBase::GeneratePoints(int32 NumNodes, float Offset)
 {
-	// Default approach
 	TArray<FVector> Points;
 	
 	for (int i = 0; i < NumNodes; ++i)

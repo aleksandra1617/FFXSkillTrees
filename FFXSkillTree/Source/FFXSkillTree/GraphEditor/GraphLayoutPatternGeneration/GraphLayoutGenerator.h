@@ -4,6 +4,7 @@
 #include "EditorSubsystem.h"
 #include "GraphLayoutGenerator.generated.h"
 
+class UGraphLayoutStrategyBase;
 class UNodePattern;
 /**
  * 
@@ -15,7 +16,7 @@ class FFXSKILLTREE_API UGraphLayoutGenerator : public UEditorSubsystem
 	
 public:
 	UFUNCTION(BlueprintCallable, Category = "Graph Layout")
-	UNodePattern* GeneratePattern(TSubclassOf<UGraphLayoutStrategyBase> StrategyClass, int32 NumNodes, float Offset);
+	UNodePattern* GeneratePattern(int32 NumNodes, float Offset);
 
 	// Should add a pattern validation function later to ensure the pattern is never generated out of bounds. 
 };

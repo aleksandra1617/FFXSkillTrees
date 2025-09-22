@@ -2,15 +2,9 @@
 #include "GraphLayoutStrategyBase.h" 
 #include "NodePattern.h"            
 
-UNodePattern* UGraphLayoutGenerator::GeneratePattern(TSubclassOf<UGraphLayoutStrategyBase> StrategyClass, int32 NumNodes, float Offset)
+UNodePattern* UGraphLayoutGenerator::GeneratePattern(int32 NumNodes, float Offset)
 {
-	if (!StrategyClass)
-	{
-		UE_LOG(LogTemp, Warning, TEXT("No StrategyClass provided."));
-		return nullptr;
-	}
-
-	UGraphLayoutStrategyBase* Strategy = NewObject<UGraphLayoutStrategyBase>(this, StrategyClass);
+	UGraphLayoutStrategyBase* Strategy = NewObject<UGraphLayoutStrategyBase>();
 	if (!Strategy)
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Failed to create Strategy instance."));

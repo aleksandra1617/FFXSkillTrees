@@ -7,7 +7,7 @@
 /**
  * 
  */
-UCLASS(Abstract, Blueprintable)
+UCLASS(Blueprintable)
 class FFXSKILLTREE_API UGraphLayoutStrategyBase : public UObject
 {
 	GENERATED_BODY()
